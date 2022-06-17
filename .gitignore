@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+bin
+lib
+.idea
+
+.envrc
+pyvenv.cfg
