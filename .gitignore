@@ -3,5 +3,4 @@ bin
 lib
 .idea
 
-.envrc
 pyvenv.cfg
