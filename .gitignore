@@ -2,5 +2,6 @@
 bin
 lib
 .idea
+*.pyc
 
 pyvenv.cfg
