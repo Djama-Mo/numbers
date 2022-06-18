@@ -2,8 +2,9 @@ import psycopg2
 from config import config
 
 
-def run_command(comm, _vars=None):
+def run_command(comm, _vars=None, select=0):
     conn = None
+    data = None
     try:
         # read connection parameters
         params = config()
@@ -13,6 +14,8 @@ def run_command(comm, _vars=None):
         cur = conn.cursor()
         # create table one by one
         cur.execute(comm)
+        if select:
+            data = cur.fetchall()
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes
@@ -22,4 +25,7 @@ def run_command(comm, _vars=None):
     finally:
         if conn is not None:
             conn.close()
+            if select:
+                return data
             print('Database connection closed.')
+

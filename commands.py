@@ -5,13 +5,14 @@ create_command = """
             "стоимость, $" INTEGER NOT NULL,
             "стоимость в руб." DECIMAL(10, 2) NOT NULL,
             "срок поставки" DATE
-        )
-    """
+        )"""
 
 
 def insert_command(_num, _order, _usd_cost, _rub_cost, _date):
     comm = """
-    INSERT INTO public.testing ("№", "заказ, №", "стоимость, $", "стоимость в руб.", "срок поставки")
-    VALUES (%s, %s, %s, %s, %s)
-    """, (_num, _order, _usd_cost, _rub_cost, _date)
+    INSERT INTO testing ("№", "заказ, №", "стоимость, $", "стоимость в руб.", "срок поставки")
+    VALUES (%s, %s, %s, %s, %s)""", (_num, _order, _usd_cost, _rub_cost, _date)
     return comm
+
+
+truncate_table = """TRUNCATE TABLE testing;"""
