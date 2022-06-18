@@ -11,18 +11,10 @@ def get_data(url):
 
 
 # Get current value USD -> RUB
-def get_current_value(xml_data):
-    dom = minidom.parseString(xml_data)
+def get_current_value():
+    dom = minidom.parseString(get_data(URL))
     dom.normalize()
     elements = dom.getElementsByTagName('Valute')
     for node in elements:
         if node.childNodes[0].firstChild.data == '840':
-            return node.childNodes[4].firstChild.data
-
-
-def main():
-    print(get_current_value(get_data(URL)))
-
-
-if __name__ == '__main__':
-    main()
+            return node.childNodes[4].firstChild.data.replace(',', '.')

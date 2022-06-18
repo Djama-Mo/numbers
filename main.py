@@ -17,14 +17,6 @@ SAMPLE_SPREADSHEET_ID = os.getenv('SAMPLE_SPREADSHEET_ID')
 SAMPLE_RANGE_NAME = 'Лист1!A2:D'
 
 
-def main():
-    gsd = GoogleSheetsData()
-    _values = gsd.get_values()
-    for row in _values:
-        # Print columns A to D, which correspond to indices 0 and 3.
-        print('%s, %s, %s, %s' % (row[0], row[1], row[2], row[3]))
-
-
 class GoogleSheetsData(object):
     def __init__(self):
         self.creds = None
@@ -52,7 +44,3 @@ class GoogleSheetsData(object):
                 return values
         except HttpError as err:
             print(err)
-
-
-if __name__ == '__main__':
-    main()
