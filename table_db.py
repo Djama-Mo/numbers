@@ -2,8 +2,8 @@ import psycopg2
 from config import config
 
 
-def connect():
-    """ Connect to the PostgreSQL database server """
+def create():
+    """ Create table in PostgreSQL server """
     comm = """
         CREATE TABLE testing (
             "№" SMALLINT NOT NULL,
@@ -37,4 +37,4 @@ def connect():
 
 
 if __name__ == '__main__':
-    connect()
+    create()
