@@ -1,6 +1,6 @@
 create_command = """
     CREATE TABLE testing (
-            "№" SMALLINT NOT NULL,
+            "№" SMALLINT PRIMARY KEY,
             "заказ, №" VARCHAR(127) NOT NULL,
             "стоимость, $" INTEGER NOT NULL,
             "стоимость в руб." DECIMAL(10, 2) NOT NULL,

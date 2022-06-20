@@ -16,4 +16,4 @@ def insert_into_table():
     for value in values:
         rub_cost = float(rub_in_usd) * int(value[2])
         run_command(*insert_command(_num=value[0], _order=value[1], _usd_cost=value[2],
-                                    _rub_cost=rub_cost, _date=value[3]))
+                                    _rub_cost=rub_cost, _date=value[3]), command_name="INSERT 1 ROW")
