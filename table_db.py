@@ -20,6 +20,7 @@ def run_command(comm, _vars=None, select=0, command_name=''):
         cur.close()
         # commit the changes
         conn.commit()
+        print(command_name)
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
@@ -27,6 +28,5 @@ def run_command(comm, _vars=None, select=0, command_name=''):
             conn.close()
             if select:
                 return data
-            print(command_name)
             print('Database connection closed.')
 

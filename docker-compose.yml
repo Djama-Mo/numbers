@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14.3-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=numbers_google_sheets
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: bash -c "python /usr/src/testing/create_table.py && python /usr/src/testing/update_table_db.py"
+    volumes:
+      - .:/usr/src/testing/
+    depends_on:
+      - db
+volumes:
+  postgres-data:
